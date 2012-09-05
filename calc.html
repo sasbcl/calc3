@@ -4,13 +4,14 @@
 
 <script language=javascript type="text/javascript">
 
-var plus,minus,divide,multiply
+var plus,minus,divide,multiply,max
 
 function initialize(){
  plus=document.calc.operator.options[0]
  minus=document.calc.operator.options[1]
  divide=document.calc.operator.options[2]
  multiply=document.calc.operator.options[3]
+ max=document.calc.operator.options[4]
 }
 
 function calculate(){
@@ -23,7 +24,9 @@ function calculate(){
     if (divide.selected)
         document.calc.answer.value = a / b
     if (multiply.selected)
-        document.calc.answer.value = a * b  
+        document.calc.answer.value = a * b
+	if (max.selected)
+		document.calc.answer.value = Math.max(a,b)
 }
 
 </script>
@@ -44,12 +47,13 @@ Change the operation via the dropdown selection box if desired.
 <option value=minus>-
 <option value=divide>/
 <option value=multiply>*
+<option value=max>max
 </select>
 
 <input type=text name=val2 size=10>
 =
 <input type=text name=answer size=10>
-<input type=button value=answer onClick="calculate()">
+<input type=button value="show answer" onClick="calculate()">
 </form>
 
 <br><br>
